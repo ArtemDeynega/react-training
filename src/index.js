@@ -65,19 +65,48 @@ const link = React.createElement(
 //////////////////////Компоненты-функции
 // const MyFunctionalComponent = (props) => <div>Functional Component</div>;
 
-const Product = (cart) => (
+// const Product = (props) => (
+//   <div>
+//     <img
+//       src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640"
+//       alt="Tacos With Lime"
+//       width="640"
+//     />
+//     <h2>Tacos With Lime</h2>
+//     <p>Price: 10.99$</p>
+//     <button type="button">Add to cart</button>
+//   </div>
+// );
+// // В разметке компонент записывается как JSX-тег
+// ReactDOM.render(<Product />, document.getElementById("root"));
+// // Это аналогично
+// ReactDOM.render(React.createElement(Product), document.getElementById("root"));
+
+///////////////////// Свойства компонента (props)
+
+const Product = ({ imgUrl, name, price }) => (
   <div>
-    <img
-      src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640"
-      alt="Tacos With Lime"
-      width="640"
-    />
-    <h2>Tacos With Lime</h2>
-    <p>Price: 10.99$</p>
+    <img src={imgUrl} alt={name} width="640" />
+    <h2>{name}</h2>
+    <p>Price: {price}$</p>
     <button type="button">Add to cart</button>
   </div>
 );
-// В разметке компонент записывается как JSX-тег
-ReactDOM.render(<Product />, document.getElementById("root"));
-// Это аналогично
-ReactDOM.render(React.createElement(Product), document.getElementById("root"));
+
+const Appi = () => (
+  <div>
+    <h1>Best selling products</h1>
+    <Product
+      imgUrl="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640"
+      name="Tacos With Lime"
+      price={10.99}
+    />
+    <Product
+      imgUrl="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?dpr=2&h=480&w=640"
+      name="Fries and Burger"
+      price={14.29}
+    />
+  </div>
+);
+
+ReactDOM.render(<Appi />, document.getElementById("root"));
