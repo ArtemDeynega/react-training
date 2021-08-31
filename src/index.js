@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -136,11 +137,34 @@ const link = React.createElement(
 // ReactDOM.render(<Appi />, document.getElementById("root"));
 
 ///////////////// Свойство defaultProps
-const Product = ({ imgUrl, name, price }) => (
+// const Product = ({ imgUrl, name, price }) => (
+//   <div>
+//     <img src={imgUrl} alt={name} width="640" />
+//     <h2>{name}</h2>
+//     <p>Price: {price}$</p>
+//     <button type="button">Add to cart</button>
+//   </div>
+// );
+// Product.defaultProps = {
+//   imgUrl:
+//     "https://dummyimage.com/640x480/2a2a2a/ffffff&text=Product+image+placeholder",
+// };
+// /*
+//  * Определение defaultProps гарантирует, что `props.imgUrl` будет иметь значение,
+//  * даже если оно не было указано при вызове компонента в родителе.
+//  */
+
+// ReactDOM.render(
+//   <Product name="Tacos With Lime" price={10.99} />,
+//   document.getElementById("root")
+// );
+
+//////////////////Свойство propTypes
+const Product = ({ imageUrl, name, price }) => (
   <div>
-    <img src={imgUrl} alt={name} width="640" />
+    <img src={imageUrl} alt={name} width="640" />
     <h2>{name}</h2>
-    <p>Price: {price}$</p>
+    <p>Price: {price}</p>
     <button type="button">Add to cart</button>
   </div>
 );
@@ -148,12 +172,11 @@ Product.defaultProps = {
   imgUrl:
     "https://dummyimage.com/640x480/2a2a2a/ffffff&text=Product+image+placeholder",
 };
-/*
- * Определение defaultProps гарантирует, что `props.imgUrl` будет иметь значение,
- * даже если оно не было указано при вызове компонента в родителе.
- */
 
-ReactDOM.render(
-  <Product name="Tacos With Lime" price={10.99} />,
-  document.getElementById("root")
-);
+Product.propTypes = {
+  imgUrl: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+};
+
+ReactDOM.render(<Product />, document.getElementById("root"));
