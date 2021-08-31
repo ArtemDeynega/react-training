@@ -111,26 +111,49 @@ const link = React.createElement(
 // ReactDOM.render(<Appis />, document.getElementById("root"));
 
 ////////////// Свойство props.children
-const Profile = ({ name, email }) => (
+// const Profile = ({ name, email }) => (
+//   <div>
+//     <p> Name: {name}</p>
+//     <p>Email: {email}</p>
+//   </div>
+// );
+
+// const Panel = ({ title, children }) => (
+//   <section>
+//     <h2>{title}</h2>
+//     {children}
+//   </section>
+// );
+
+// const Appi = () => (
+//   <div>
+//     <Panel title="User Profile">
+//       <Profile name="Mango" email="mango@gmail.com" />
+//     </Panel>
+//   </div>
+// );
+
+// ReactDOM.render(<Appi />, document.getElementById("root"));
+
+///////////////// Свойство defaultProps
+const Product = ({ imgUrl, name, price }) => (
   <div>
-    <p> Name: {name}</p>
-    <p>Email: {email}</p>
+    <img src={imgUrl} alt={name} width="640" />
+    <h2>{name}</h2>
+    <p>Price: {price}$</p>
+    <button type="button">Add to cart</button>
   </div>
 );
+Product.defaultProps = {
+  imgUrl:
+    "https://dummyimage.com/640x480/2a2a2a/ffffff&text=Product+image+placeholder",
+};
+/*
+ * Определение defaultProps гарантирует, что `props.imgUrl` будет иметь значение,
+ * даже если оно не было указано при вызове компонента в родителе.
+ */
 
-const Panel = ({ title, children }) => (
-  <section>
-    <h2>{title}</h2>
-    {children}
-  </section>
+ReactDOM.render(
+  <Product name="Tacos With Lime" price={10.99} />,
+  document.getElementById("root")
 );
-
-const Appi = () => (
-  <div>
-    <Panel title="User Profile">
-      <Profile name="Mango" email="mango@gmail.com" />
-    </Panel>
-  </div>
-);
-
-ReactDOM.render(<Appi />, document.getElementById("root"));
