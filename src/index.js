@@ -160,24 +160,35 @@ const link = React.createElement(
 // );
 
 //////////////////Свойство propTypes
-const Product = ({ imageUrl, name, price }) => (
+// const Product = ({ imageUrl, name, price }) => (
+//   <div>
+//     <img src={imageUrl} alt={name} width="640" />
+//     <h2>{name}</h2>
+//     <p>Price: {price}</p>
+//     <button type="button">Add to cart</button>
+//   </div>
+// );
+
+// Product.defaultProps = {
+//   imageUrl:
+//     "https://dummyimage.com/640x480/2a2a2a/ffffff&text=Product+image+placeholder",
+// };
+
+// Product.propType = {
+//   imgUrl: PropTypes.string,
+//   name: PropTypes.string.isRequired,
+//   price: PropTypes.number.isRequired,
+// };
+
+// ReactDOM.render(<Product />, document.getElementById("root"));
+
+// ///////////// Рендер по условию if с помощью логического оператора &&
+
+const Mailbox = ({ unreadMessages }) => (
   <div>
-    <img src={imageUrl} alt={name} width="640" />
-    <h2>{name}</h2>
-    <p>Price: {price}</p>
-    <button type="button">Add to cart</button>
+    <h1>Hello!</h1>
+    {unreadMessages.length > 0 && (
+      <p>You have {unreadMessages.length} unread messages.</p>
+    )}
   </div>
 );
-
-Product.defaultProps = {
-  imageUrl:
-    "https://dummyimage.com/640x480/2a2a2a/ffffff&text=Product+image+placeholder",
-};
-
-Product.propType = {
-  imgUrl: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-};
-
-ReactDOM.render(<Product />, document.getElementById("root"));
