@@ -168,12 +168,13 @@ const Product = ({ imageUrl, name, price }) => (
     <button type="button">Add to cart</button>
   </div>
 );
+
 Product.defaultProps = {
-  imgUrl:
+  imageUrl:
     "https://dummyimage.com/640x480/2a2a2a/ffffff&text=Product+image+placeholder",
 };
 
-Product.propTypes = {
+Product.propType = {
   imgUrl: PropTypes.string,
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
