@@ -211,7 +211,7 @@ const Mailbox = ({ name, unreadMessages }) => (
   <div>
     <h1>Hello {name}!</h1>
     <p>
-      {unreadMessages.legth > 0
+      {unreadMessages.length > 0
         ? `You have ${unreadMessages.length} unread messages.`
         : "No unread messages."}
     </p>
@@ -238,4 +238,4 @@ Product.defaultProps = {
 };
 
 ReactDOM.render(<Product />, document.getElementById("root"));
-ReactDOM.render(<Mailbox />, document.getElementById("root"));
+// ReactDOM.render(<Mailbox />, document.getElementById("root"));
