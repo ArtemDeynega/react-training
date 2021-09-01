@@ -184,11 +184,58 @@ const link = React.createElement(
 
 // ///////////// Рендер по условию if с помощью логического оператора &&
 
-const Mailbox = ({ unreadMessages }) => (
+// const Mailbox = ({ unreadMessages }) => (
+//   <div>
+//     <h1>Hello!</h1>
+//     {unreadMessages.length > 0 && (
+//       <p>You have {unreadMessages.length} unread messages.</p>
+//     )}
+//   </div>
+// );
+
+//////// Ренден по условия if...else с помощью тернарного оператора
+//Var1
+// const Mailbox = ({ name, unreadMessages }) => (
+//   <div>
+//     <h1>Hello!</h1>
+//     {unreadMessages.length > 0 ? (
+//       <p>You have {unreadMessages.length} unread messages.</p>
+//     ) : (
+//       <p>No unread messages.</p>
+//     )}
+//   </div>
+// );
+
+//Var2
+const Mailbox = ({ name, unreadMessages }) => (
   <div>
-    <h1>Hello!</h1>
-    {unreadMessages.length > 0 && (
-      <p>You have {unreadMessages.length} unread messages.</p>
-    )}
+    <h1>Hello {name}!</h1>
+    <p>
+      {unreadMessages.legth > 0
+        ? `You have ${unreadMessages.length} unread messages.`
+        : "No unread messages."}
+    </p>
   </div>
 );
+
+Mailbox.defaultProps = {
+  name: "Artem",
+  unreadMessages: "",
+};
+
+const Product = ({ imgUrl, name, price, quantity }) => (
+  <div>
+    <img src={imgUrl} alt={name} width="640" />
+    <h2>{name}</h2>
+    <p>Price: {price}</p>
+    <h1>Quantity: {quantity < 20 ? "Few left" : "In stock"}</h1>
+    <button type="button">Add to cart</button>
+  </div>
+);
+Product.defaultProps = {
+  imgUrl:
+    "https://dummyimage.com/640x480/2a2a2a/ffffff&text=Product+image+placeholder",
+};
+
+ReactDOM.render(<Product />, document.getElementById("root"));
+ReactDOM.render(<Mailbox />, document.getElementById("root"));
