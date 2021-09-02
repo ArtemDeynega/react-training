@@ -241,4 +241,53 @@ const link = React.createElement(
 // ReactDOM.render(<Product />, document.getElementById("root"));
 // ReactDOM.render(<Mailbox />, document.getElementById("root"));
 
-//////////
+//////////Коллекции
+
+// const favouriteBooks = [
+//   { id: "id-1", name: "JS for begines" },
+//   { id: "id-2", name: "React basics" },
+//   { id: "id-3", name: "React Router overview" },
+//   { id: "id-4", name: "Redux in depth" },
+//   { id: "id-5", name: "JS for begines" },
+//   { id: "id-6", name: "React basics" },
+//   { id: "id-7", name: "React Router overview" },
+//   { id: "id-8", name: "Redux in depth" },
+// ];
+
+// const BookList = ({ books }) => (
+//   <ul>
+//     {books.map((book) => (
+//       <li key={book.id}> {book.name}</li>
+//     ))}
+//   </ul>
+// );
+
+// ReactDOM.render(
+//   <BookList books={favouriteBooks} />,
+//   document.getElementById("root")
+// );
+
+//////////////Ключи
+const favouriteBooks = [
+  { id: "id-1", name: "JS for begines" },
+  { id: "id-2", name: "React basics" },
+  { id: "id-3", name: "React Router overview" },
+  { id: "id-4", name: "Redux in depth" },
+  { id: "id-5", name: "JS for begines" },
+  { id: "id-6", name: "React basics" },
+  { id: "id-7", name: "React Router overview" },
+  { id: "id-8", name: "Redux in depth" },
+];
+
+const BookList = ({ books }) => (
+  <ul>
+    {books.map((book) => (
+      <li key={book.id}> {book.name}</li>
+    ))}
+  </ul>
+);
+
+ReactDOM.render(
+  <BookList books={favouriteBooks} />,
+  document.getElementById("root")
+);
